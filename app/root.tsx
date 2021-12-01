@@ -10,10 +10,6 @@ import {
 } from 'remix';
 import type { LinksFunction } from 'remix';
 
-export const links: LinksFunction = () => {
-    return [{ rel: 'stylesheet', href: '/tailwindcss' }];
-};
-
 export default function App() {
     return (
         <Document>
@@ -104,7 +100,9 @@ function Document({
                 <link
                     href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap"
                     rel="stylesheet"
-                 />
+                />
+                <link href="/tailwind.css" rel="stylesheet" />
+                <link href="/christmas.css" rel="stylesheet" />
             </head>
             <body>
                 {children}

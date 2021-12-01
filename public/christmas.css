@@ -1,14 +1,7 @@
-/* app/tailwind.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 .title {
   font-size: 84px;
   font-family: 'Mountains of Christmas', cursive;
 }
-
 
 @-webkit-keyframes shake {
     0% {
