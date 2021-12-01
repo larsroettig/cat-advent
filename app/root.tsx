@@ -8,7 +8,7 @@ import {
     ScrollRestoration,
     useCatch
 } from 'remix';
-import type { LinksFunction } from 'remix';
+
 
 export default function App() {
     return (

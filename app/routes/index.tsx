@@ -1,21 +1,13 @@
 import * as React from 'react';
-import type { MetaFunction, LoaderFunction } from 'remix';
+import type { MetaFunction } from 'remix';
 import AdventsBox from '~/components/adventsBox';
 import Particles from 'react-tsparticles';
-
-// Loaders provide data to components and are only ever called on the server, so
-// you can connect to a database or run any server side code you want right next
-// to the component that renders it.
-// https://remix.run/api/conventions#loader
-export const loader: LoaderFunction = () => {
-    return [];
-};
 
 // https://remix.run/api/conventions#meta
 export const meta: MetaFunction = () => {
     return {
-        title: 'Remix Starter Typescript and Tailwind',
-        description: 'Welcome to remix!'
+        title: 'Cat Advent 2021',
+        description: 'Very nice cat advent calender'
     };
 };
 
@@ -38,9 +30,11 @@ export default function Index() {
             <div className="absolute z-10 bottom-0 inset-0 m-auto">
                 <div className="container m-auto">
                     <div className="title my-10 text-center text-white">
-                        Advent Calendar 2021
+                        Cat Advent Calendar 2021
                     </div>
-                    <div className="grid gap-4 grid-cols-5">{items}</div>
+                    <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+                        {items}
+                    </div>
                 </div>
             </div>
         </div>
