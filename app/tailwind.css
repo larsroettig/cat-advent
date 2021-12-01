@@ -1,0 +1,198 @@
+/* app/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.title {
+  font-size: 84px;
+  font-family: 'Mountains of Christmas', cursive;
+}
+
+
+@-webkit-keyframes shake {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    20% {
+      -webkit-transform: rotate(-20deg);
+              transform: rotate(-20deg);
+    }
+    40% {
+      -webkit-transform: rotate(20deg);
+              transform: rotate(20deg);
+    }
+    60% {
+      -webkit-transform: rotate(-10deg);
+              transform: rotate(-10deg);
+    }
+    80% {
+      -webkit-transform: rotate(10deg);
+              transform: rotate(10deg);
+    }
+    100% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+  }
+  @keyframes shake {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    20% {
+      -webkit-transform: rotate(-20deg);
+              transform: rotate(-20deg);
+    }
+    40% {
+      -webkit-transform: rotate(20deg);
+              transform: rotate(20deg);
+    }
+    60% {
+      -webkit-transform: rotate(-10deg);
+              transform: rotate(-10deg);
+    }
+    80% {
+      -webkit-transform: rotate(10deg);
+              transform: rotate(10deg);
+    }
+    100% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+  }
+  #main {
+    text-align: center;
+    padding: 1em;
+  }
+
+  .box,
+  .box-soon,
+  .present {
+    width: 100%;
+    height: 100%;
+  }
+
+  .article {
+    display: inline-block;
+    width: 9em;
+    height: 9em;
+    margin: 0.5em;
+    -webkit-perspective: 850px;
+            perspective: 850px;
+  }
+
+  .box {
+    position: relative;
+    background: -webkit-linear-gradient(315deg, #b85f74 50%, #a94b61 50%);
+    background: linear-gradient(135deg, #b85f74 50%, #a94b61 50%);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform-origin: 0;
+            transform-origin: 0;
+    -webkit-perspective: 850px;
+            perspective: 850px;
+    text-align: center;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+
+  .box-soon {
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+    background: -webkit-linear-gradient(315deg, #616161 50%, #a94b61 50%);
+    background: linear-gradient(135deg, #616161 50%, #460b19 50%);
+  }
+
+  .box-soon h2
+  .box h2 {
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0.5em;
+    font-size: 0.85em;
+    line-height: 3em;
+    color: white;
+    background: #292654;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  .article:hover .box {
+    background: -webkit-linear-gradient(315deg, #cd8d9c 50%, #c57c8d 50%);
+    background: linear-gradient(135deg, #cd8d9c 50%, #c57c8d 50%);
+    -webkit-transform: rotateY(-97deg);
+            transform: rotateY(-97deg);
+    -webkit-perspective-origin: 0;
+            perspective-origin: 0;
+    -webkit-transition: all .4s ease-in;
+    transition: all .4s ease-in;
+  }
+  .article:hover .box h2 {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  .article:hover .bauble {
+
+    -webkit-animation: shake 1s;
+            animation: shake 1s;
+    -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+  }
+
+  .present {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0f0e1f;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15), inset 0 0 30px 20px rgba(0, 0, 0, 0.4);
+    z-index: -1;
+  }
+
+  .bauble {
+    position: relative;
+   display: block;
+    text-align: center;
+
+    width: 2.75em;
+    height: 2.75em;
+    background: #a94b61;
+    margin: 25% auto 0 auto;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 2.75em;
+    color: white;
+    border-radius: 50%;
+  }
+  .bauble:after {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    margin-left: -15%;
+    width: 30%;
+    height: 10%;
+    background: inherit;
+  }
+  .bauble:before {
+    content: "";
+    width: 12%;
+    height: 20%;
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    margin-left: -12%;
+    border-radius: 50%;
+    border: 0.35rem solid #a94b61;
+    z-index: 0;
+  }
+  .article:hover .box.closedDoor { transform: none; }
