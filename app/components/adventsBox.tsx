@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import * as React from 'react';
 import Modal from './dialog';
+import YouTube from 'react-youtube';
 
 type AdventsBoxContent = {
     type?: string;
     url?: string;
+    videoId?: string;
 };
 
 const adventsBoxContent: { [key: string]: AdventsBoxContent } = {
@@ -13,17 +15,37 @@ const adventsBoxContent: { [key: string]: AdventsBoxContent } = {
         url: '/cats/cat-323262.jpg'
     },
     2: {
+        type: 'video',
+        videoId: '9AAb_3TKnbQ'
+    },
+    3: {
         type: 'image',
-        url: '/cats/cat-323262.jpg'
+        url: '/cats/cat-551554.jpg'
+    },
+    4: {
+        type: 'image',
+        url: '/cats/cat-1045782.jpg'
     }
 };
 
 function ModalContent(params: { content: AdventsBoxContent }) {
     const { content } = params;
-    const { type, url } = content;
+    const { type, url, videoId } = content;
 
     if (type === 'image') {
         return <img src={url} />;
+    }
+
+    if (type === 'video') {
+        const opts = {
+            width: '1200',
+            height: '630'
+        };
+        return (
+            <div>
+                <YouTube videoId={videoId} opts={opts} className="m-auto" />
+            </div>
+        );
     }
 
     return null;
