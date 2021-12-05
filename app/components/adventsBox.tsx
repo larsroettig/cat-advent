@@ -9,24 +9,10 @@ type AdventsBoxContent = {
     videoId?: string;
 };
 
-const adventsBoxContent: { [key: string]: AdventsBoxContent } = {
-    1: {
-        type: 'image',
-        url: '/cats/cat-323262.jpg'
-    },
-    2: {
-        type: 'video',
-        videoId: '9AAb_3TKnbQ'
-    },
-    3: {
-        type: 'image',
-        url: '/cats/cat-551554.jpg'
-    },
-    4: {
-        type: 'image',
-        url: '/cats/cat-1045782.jpg'
-    }
-};
+const adventsBoxContent: {
+    [key: string]: AdventsBoxContent;
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+} = require('./adventBox.json');
 
 function ModalContent(params: { content: AdventsBoxContent }) {
     const { content } = params;
@@ -53,8 +39,8 @@ function ModalContent(params: { content: AdventsBoxContent }) {
 
 function AdventsBox(props: { day: number; date: Date }) {
     const { day, date } = props;
-    const content = adventsBoxContent[day];
-    console.log(content);
+    const key = `day${day}`;
+    const content = adventsBoxContent[key];
     const [showModal, setShowModal] = React.useState(false);
 
     const modalContent = showModal ? <ModalContent content={content} /> : null;
