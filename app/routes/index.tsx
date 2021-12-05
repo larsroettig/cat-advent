@@ -36,10 +36,10 @@ export default function Index() {
             <Particles id="tsparticles" url="snow.json" />
             <div className="absolute z-10 bottom-0 inset-0 m-auto">
                 <div className="container m-auto">
-                    <div className="title my-10 text-center text-white text-9xl">
+                    <div className="title my-10 text-center text-white text-4xl sm:text-6xl lg:text-9xl">
                         Cat Advent Calendar 2021
                     </div>
-                    <div className="title my-10 text-center text-white text-5xl">
+                    <div className="title my-10 text-center text-white text-2xl sm:text-4xl lg:text-6xl">
                         Days until christmas
                         <span role="img" aria-label="Santa Claus">
                             🎅

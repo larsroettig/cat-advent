@@ -76,7 +76,7 @@
       display: inline-block;
       width: 9em;
       height: 9em;
-      margin: 0.5em;
+      margin: auto;
       -webkit-perspective: 850px;
               perspective: 850px;
     }
