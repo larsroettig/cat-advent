@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { MetaFunction } from 'remix';
 import AdventsBox from '~/components/adventsBox';
+import AdventsBoxNext from '~/components/adventsBoxNext';
 import Particles from 'react-tsparticles';
 import Countdown from 'react-countdown';
 
@@ -12,21 +13,22 @@ export const meta: MetaFunction = () => {
     };
 };
 
+Array.prototype.random = function () {
+    return this[Math.floor((Math.random()*this.length))];
+}
+
 // https://remix.run/guides/routing#index-routes
 export default function Index() {
-    const items = [];
+    let days = [...Array(24).keys()];
+    days = days.sort(() => Math.random() - 0.5)
 
     const currentDate = new Date();
-    const showCalender =
-        currentDate.getMonth() === 11 && currentDate.getDate() <= 24;
-
     const nextChristmas = new Date(currentDate.getFullYear(), 11, 24, 0, 0, 0);
 
-    if (showCalender) {
-        for (let i = 1; i <= 24; i++) {
-            items.push(<AdventsBox key={i} day={i} date={currentDate} />);
-        }
-    }
+    const items = days.map((day) => {
+        const currentDay = day + 1;
+            return <AdventsBox key={`AdventsBox${day}`} day={currentDay} />;
+    });
 
     return (
         <div
@@ -40,13 +42,11 @@ export default function Index() {
                         Cat Advent Calendar 2021
                     </div>
                     <div className="title my-10 text-center text-white text-2xl sm:text-4xl lg:text-6xl">
-                        Days until christmas
+                     Christmas
                         <span role="img" aria-label="Santa Claus">
-                            🎅
+                            🎅 🎅 🎅 🎅
                         </span>
-                        <Countdown date={nextChristmas} />
                     </div>
-
                     <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                         {items}
                     </div>

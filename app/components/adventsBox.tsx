@@ -37,8 +37,8 @@ function ModalContent(params: { content: AdventsBoxContent }) {
     return null;
 }
 
-function AdventsBox(props: { day: number; date: Date }) {
-    const { day, date } = props;
+function AdventsBox(props: { day: number }) {
+    const { day } = props;
     const key = `day${day}`;
     const content = adventsBoxContent[key];
     const [showModal, setShowModal] = React.useState(false);
@@ -49,23 +49,13 @@ function AdventsBox(props: { day: number; date: Date }) {
         setShowModal(true);
     };
 
-    if (day > date.getDate()) {
-        return (
-            <div className="article">
-                <div className="box-soon closedDoor">
-                    <div className="text-center text-white text-9xl">{day}</div>
-                </div>
-            </div>
-        );
-    }
-
     return (
         <React.Fragment>
             <Modal open={showModal} setOpen={setShowModal}>
                 {modalContent}
             </Modal>
             <div className="article">
-                <div className="box openDoor">
+                <div className="box">
                     <div className="text-center text-white text-9xl">{day}</div>
                 </div>
                 <div className="present" onClick={onClick}>
